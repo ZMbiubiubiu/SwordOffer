@@ -17,10 +17,12 @@ def find(array, number):
             i += 1
         else:
             j -= 1
+    return False
 
     
 
 
 if __name__ == "__main__":
     ll = [[1,2,8,9], [2,4,9,12], [4,7,10,13], [6,8,11,15]]
-    print(find(ll, 7))
+    print(find(ll, 123)) # False
+    print(find(ll, 7))   # True
