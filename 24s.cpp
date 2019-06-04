@@ -23,7 +23,7 @@ public:
             if (arr[i] > root)
                 break;
         }
-        // 划分边界
+        // 划分边界, mid为左子树的最右边索引
         int mid = i - 1;
         // 如果所谓的右子树出现小于根节点的值,那么说明并非为二叉搜索树
         while (i < high) {
