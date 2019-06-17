@@ -45,5 +45,4 @@ public:
             }
             return matrix;
         }
-    
 };
