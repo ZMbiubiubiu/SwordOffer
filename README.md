@@ -13,7 +13,7 @@
 不要从中间开始找,否则当前值不论过小还是过大,你都有两个方向需要去继续查找.正确的做法是从一角开始找,但也并不是哪个角都适合.到底从哪里开始找,自己举个例子即可.
 
 [c++版本](./3.cpp)  
-```
+```c++
 #include <iostream>
 
 using namespace std;
@@ -51,7 +51,7 @@ int main()
 
 #### 解答思路:
 避免重复移动.首先遍历字符串,找出空格数.确定替换之后字符串长度,由一个字符扩展到三个字符,即增加的长度为空格数*2.声明两个指针p1/p2,p1指向原字符串末尾,p2指向新字符串末尾.逐渐向左逼近,p1指向的值赋值给p2指向的值;当p1指向空格时,p1向前移动一格,p2向前移动三格,并且插入'%20' 
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -101,7 +101,7 @@ int main() {
 第一种,直接用栈.  
 第二种用递归函数(递归本质上就是一种栈结构).当我们访问一个节点的时候,首先递归输出后面的节点,然后输出此节点.  
 [C++递归版本](./5s.cpp)  
-```
+```c++
 /*
 **  5.从尾到头打印链表
 **  输入一个链表的头结点,从尾到头反过来打印出每个节点的值
@@ -160,7 +160,7 @@ int main()
 
 ```
 [C++迭代版使用容器栈](./5s.cpp)  
-```
+```c++
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -201,7 +201,7 @@ public:
 #### 解答思路:
  前序遍历的结果中第一个便是树根, 中序遍历的结果树根在中间,然后可以分割出左子树和右子树. 得到了左子树的长度之后,便可以在前序遍历中划定左子树的范围,这样有什么好处?继而在确定左子树中的根节点.所以这就是一个递归的过程.  
 [C++版本](./6.cpp)  
-```
+```c++
 #include <iostream>
 #include <vector>
 
@@ -259,7 +259,7 @@ public:
 
 #### 解题思路:我们有两个栈.一个用作'入队'时使用, 一个用作'出队'时使用.  
 [C++版本](./7.cpp)  
-```
+```c++
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -297,12 +297,12 @@ private:
 
 ```
 
-### 8补充 排序员工的年龄数组
+### 8 补充 排序员工的年龄数组
 
 #### 解答思路:
 人的年龄是一个有限范围数字组成的数组.对其排序,可以采用简单桶排序的方法  
 [C++版本](./8_b.cpp)  
-```
+```c++
 import random
 
 def sort(arr):
@@ -354,7 +354,7 @@ if __name__ == "__main__":
     2-left right mid 对应的值相同的话,无法判断中间值到底属于前后递增数组中的哪一个.此时用笨办法直接局部遍历的方法找  
             比如1,0,1,1,1  
 [C++版本]('./8s.cpp') 
-```
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -401,7 +401,7 @@ public:
 ### 9.1 斐波那契数列  
 
 [C++版本](./9s.cpp)  
-```
+```c++
 
 class Solution {
 public:
@@ -426,7 +426,7 @@ public:
 #### 解答思路:
  对于n阶的台阶的问题可以记做f(n),如果第一步跳了1阶,剩下n-1阶,对应问题f(n-1), 如果第一步跳了两步,剩下n-2阶,对应问题f(n-2).所以f(n) = f(n-1) + f(n-2).由此可以看出这是斐波那契数列的变体.  
 [C++版本](./9s2.cpp)  
-```
+```c++
 class Solution {
 public:
     int jumpFloor(int number) {
@@ -448,7 +448,7 @@ public:
 
 #### 解答思路:
 要覆盖的矩形长度为n,宽度为2.记做问题f(n) 如果第一步采用竖着覆盖, 那么还剩下长度为n-1的矩形需要覆盖, 记做问题f(n-1).如果第一步采用横着覆盖,横着覆盖的话,左下角必须同样横着覆盖,别无他法.剩下长度为n-2的矩形记做问题f(n-2).没错,又是斐波那契数列的变体.  
-```
+```c++
 class Solution {
 public:
     int rectCover(int number) {
@@ -480,7 +480,7 @@ m>>n 表示把m右移n位. 此时需要分情况讨论
     m是一个有符号整数,且是一个负数: 用1补上最左边的n位  
 
 [C++移位版本](./10s1.cpp) 
-```
+```c++
 class Solution {
 public:
     int  NumberOf1(int n) {
@@ -499,7 +499,7 @@ public:
 #### (2)  整数与减去1的结果做位与运算  
 一个整数比如1100, 减去1的结果为1011.两者进行位与运算为1000.没进行依次上述操作就消去了一个1.如此便可以计算二进制数中1的个数.  
 [C++与运算版本](./10s1.cpp) 
-```
+```c++
 class Solution {
 public:
     int  NumberOf1(int n) {
@@ -524,7 +524,7 @@ public:
     (2)负数次幂,需要计算倒数.一涉及到倒数就要想到除数为0的情况,此时base不能为0  
     (3)浮点数的相等比较,不能用==来操作.因为计算机表示浮点数会有误差,我们比较两个浮点数通过确认两者的差值是否在某一个限定范围内.  
 [C++版本](./11s.cpp) 
-```
+```c++
 class Solution {
 public:
     bool equal(double a, double b) {
@@ -563,7 +563,7 @@ public:
 #### 解答思路: 
 见代码  
 [C++队列版本](./14s.cpp)  
-```
+```c++
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -612,7 +612,7 @@ public:
 求链表的中间节点.定义两个指针,一快一慢.慢的一步走一个节点,快的一步走两个节点.当快指针到达尾节点时,此时慢指针到达中间节点  
 求链表中是否有环.同上定义快慢两个指针,当快指针追上慢指针的时候,说明链表中有环,否则快指针到达尾节点,说明链表中没有环.      
 [C++迭代版本](./15s.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -658,7 +658,7 @@ public:
     确定递归基.相信递归函数的作用.找到Reverse(head)与Reverse(next)的关系
 
 [C++递归版本](./16s.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -688,7 +688,7 @@ public:
 };
 ```
 [C++迭代版本](./16s2.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -729,7 +729,7 @@ public:
 #### 解答思路: 
     使用递归,那么递归函数的作用为:合并两个排序链表,返回合并之后链表的头结点. 根据递归函数的作用确定递归基,返回值,建立递归之间的联系.  
 [C++递归版本](./17s.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -762,7 +762,7 @@ public:
 };
 ```  
 [C++迭代版本](./17s2.cpp) 
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -811,7 +811,8 @@ public:
 (1) 首先在tree1中找到节点值与tree2根节点值相同的节点.判断tree2是否是其子结构  
 (2)上述没成功,继续遍历tree1.  
 [C++递归版本](./18s.cpp)  
-```
+```c++
+
 ```
 
 
@@ -821,7 +822,7 @@ public:
 
 #### 解答思路:  
 其实就是翻转二叉树.主旨就是递归函数的定义  
-```
+```c++
 #include <iostream>
 
 struct TreeNode {
@@ -881,7 +882,7 @@ public:
 构造一个辅助栈,用来存储当前最小值.push数值入栈时,数据栈直接入栈,存储最小值的栈需要判断.如果value小于辅助栈的栈顶(即之前的最小值),那么也把value入辅助栈,否则将辅助栈栈顶元素再次入栈.  
 要点就是始终保持两个栈的大小相等.根据压入的value来更新辅助栈的栈顶元素.  
 [C++版本](./21s.cpp)  
-```
+```c++
 #include <iostream>
 #include <stack>;
 
@@ -921,7 +922,7 @@ public:
 
 如果下一个弹出的数字刚好是栈顶数字,那么直接弹出.如果下一个弹出的数字不在栈顶,我们把压栈序列中还没有入栈的数字依次入栈,直到把下一个需要弹出的数字压入栈顶为止(然后弹出).如果所有数字都入栈了,还没有找到下一个需要被弹出的数字,那么该序列不可能是一个弹出序列.  
 [C++版本](./22s.cpp)  
-```
+```c++
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -960,7 +961,7 @@ public:
 
 不难看出,此题使用队列来解决.从上到下按层遍历二叉树,从本质上来说就是广度优先遍历二叉树.  
 [C++版本](./23s.cpp)  
-```
+```c++
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -1015,7 +1016,7 @@ public:
 * 剩下的看函数内的注解即可  
 
 [C++版本](./24s.cpp) 
-```
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1067,7 +1068,7 @@ public:
 * 分离  
 
 [C++代码](./26s.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -1134,7 +1135,7 @@ public:
 #### 解答思路:  
 核心就是中序遍历,然后修改当前节点与前一个节点的指向即可  
 [C++代码](./27s.cpp)  
-```
+```c++
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -1188,7 +1189,7 @@ public:
 
 首先我们假设这样的数存在,我们找出它.使用'[投票算法](https://blog.csdn.net/kimixuchen/article/details/52787307)'.然后验证如果这个确实出现的次数超过数组个数的一半,应该满足 2*m > N(其中N为总个数,m为找出的数在数组中出现的次数).否则,不存在这样的数.  
 [C++版本](./29s.cpp)  
-```
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1232,7 +1233,7 @@ public:
 
 详情见代码  
 [C++版本](./31s.cpp)  
-```
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1266,7 +1267,7 @@ public:
 如果我们从两个链表的尾部向前找,最后一个相同的节点就是我们要找的公共节点.很自然,我们需要使用栈.  
 
 [C++代码](./37s.cpp) 
-```
+```c++
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -1322,7 +1323,7 @@ public:
 #### 解答思路:  
 递归  
 [C++代码](./39s.cpp)  
-```
+```c++
 struct TreeNode {
 	int val;
 	struct TreeNode *left;
@@ -1356,7 +1357,7 @@ public:
 然后找到某一位结果为1,代表这两个数在这一位不同.据此将整个数组分成两个部分.  
 最后在每一个部分再次进行迭代亦或运算,如此分别得到这两个数.  
 [C++代码](./40s.cpp)  
-```
+```c++
 class Solution {
 public:
     void FindNumsAppearOnce(vector<int> data,int* num1,int *num2) {
@@ -1396,7 +1397,7 @@ public:
 #### 解答思路:  
 分别统计癞子的数量和不连续的顺子的数量  
 [C++代码](./44s.cpp)  
-```
+```c++
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1522,7 +1523,7 @@ public:
 找到递归基判断,即n<=0.  
 因此核心代码为:bool flag = (n > 0) && (sum += Sum_Solution(n-1))  
 [C++代码](./46s.cpp)  
-```
+```c++
 class Solution {
 public:
     int Sum_Solution(int n) {
@@ -1542,7 +1543,7 @@ public:
 这样我们可以得到两个数,其一没有进位的加法结果,其二为只有进位的结果  
 如此一来我们可以不断的循环执行,直到进位值为0,此时的没有进位的加法结果便是最终结果  
 [C++代码](./47s.cpp)  
-```
+```c++
 class Solution {
 public:
     int Add(int num1, int num2)
@@ -1576,7 +1577,7 @@ public:
 * 如果没有右子树,且当前节点是父节点的左节点:下一节点为父节点
 * 如果没有右子树,且当前节点是父节点的右节点:沿着父节点的指针回溯,直到节点为其父节点左节点
 [C代码](./58.cpp)  
-```
+```c++
 #include <iostream>
 using namespace std;
 
@@ -1632,7 +1633,7 @@ public:
 如果一个二叉树同此二叉树的镜像是同样的,定义其为对称的.  
 上面那句话也可以理解为,二叉树的前序遍历结果,我们在定义个与前序遍历对应的遍历(root->right->left).比较这两者的序列(加上NULL值).  
 [C++代码](./59s.cpp)  
-```
+```c++
 #include <iostream>
 // #include 
 using namespace std;
@@ -1674,7 +1675,7 @@ public:
 #### 解答思路:  
 使用队列,层次遍历,记录每一层的节点数.  
 [C++代码](./60s.cpp)  
-```
+```c++
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -1725,7 +1726,7 @@ public:
 };
 ```
 [C++代码](./60s_2.cpp): 与上算法一样,但是思路更为清晰  
-```
+```c++
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
@@ -1763,7 +1764,7 @@ public:
 在递归时，递归函数的参数一定要是char ** ，这样才能保证每次递归后指向字符串的指针会
 随着递归的进行而移动！！！) 
 [C++代码](./62s.cpp)  
-```
+```c++
 #include <iostream>
 #include <string>
 using namespace std;
